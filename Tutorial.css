@@ -1,0 +1,121 @@
+.tutorial-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(139, 69, 19, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.tutorial-content {
+  background-color: #FFF8DC;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(139, 69, 19, 0.2);
+  padding: 32px 40px;
+  width: 90%;
+  max-width: 550px;
+  text-align: center;
+  position: relative;
+  font-family: 'Work Sans', sans-serif;
+  animation: scaleIn 0.3s ease-in-out;
+}
+
+.tutorial-content h2 {
+  font-size: 28px;
+  color: #8B4513;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.tutorial-content p {
+  font-size: 18px;
+  color: #4A4A4A;
+  margin-bottom: 24px;
+}
+
+.tutorial-content ol {
+  text-align: left;
+  color: #4A4A4A;
+  padding-left: 24px;
+  font-size: 16px;
+  margin-bottom: 28px;
+}
+
+.tutorial-content li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.close-button {
+  background-color: #8B4513;
+  color: #FFF;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.close-button:hover {
+  background-color: #A0522D;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(139, 69, 19, 0.2);
+}
+
+.tutorial-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #8B4513;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.tutorial-close:hover {
+  background-color: rgba(139, 69, 19, 0.1);
+  transform: rotate(90deg);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .tutorial-content {
+    padding: 24px;
+    width: 90%;
+  }
+  
+  .tutorial-content h2 {
+    font-size: 24px;
+  }
+
+  .tutorial-content p,
+  .tutorial-content ol {
+    font-size: 15px;
+  }
+
+  .close-button {
+    padding: 10px 20px;
+    font-size: 15px; 
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "vision_arch",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
+    "@vitejs/plugin-react": "^4.3.3",
+    "babel-loader": "^9.2.1",
+    "vite": "^5.4.8"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dat.gui": "^0.7.9",
+    "express": "^4.21.1",
+    "lucide-react": "^0.171.0",
+    "postprocessing": "^6.36.3",
+    "react": "^18.3.1",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-dom": "^18.3.1",
+    "react-draggable": "^4.4.6",
+    "realism-effects": "^1.1.2",
+    "three": "^0.169.0",
+    "three-csg-ts": "^3.2.0"
+  },
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

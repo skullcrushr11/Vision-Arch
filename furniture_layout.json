@@ -1,0 +1,45 @@
+{
+  "furniturePositions": [
+    {
+      "id": 1730755117959,
+      "model_name": "Table",
+      "model_picture": "/assets/2dimages/table.png",
+      "x": 2,
+      "y": -2,
+      "width": 2,
+      "height": 2,
+      "flipped": false,
+      "file_location": "/assets/models/table.glb",
+      "scaling_factor": 3,
+      "upwards": 0.01
+    },
+    {
+      "id": 1730755122031,
+      "model_name": "Chair",
+      "model_picture": "/assets/2dimages/chair.png",
+      "x": 3,
+      "y": 5,
+      "width": 2,
+      "height": 2,
+      "flipped": false,
+      "file_location": "/assets/models/chair.gltf",
+      "scaling_factor": 1.5,
+      "upwards": 0.01
+    },
+    {
+      "id": 1730755125328,
+      "model_name": "Fridge",
+      "model_picture": "/assets/2dimages/fridge.jpg",
+      "x": 0,
+      "y": 0,
+      "width": 2,
+      "height": 2,
+      "flipped": false,
+      "file_location": "/assets/models/fridge.glb",
+      "scaling_factor": 0.015,
+      "upwards": 0.01
+    }
+  ],
+  "roomWidth": 1000,
+  "roomHeight": 1000
+}

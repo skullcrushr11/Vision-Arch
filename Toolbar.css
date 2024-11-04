@@ -1,0 +1,69 @@
+.toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF8DC;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(139, 69, 19, 0.15);
+  border-bottom: 1px solid #D2B48C;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.toolbar-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFF;
+  border: 1px solid #D2B48C;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 0 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #8B4513;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.toolbar-button:hover {
+  background-color: #F4E6C8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(139, 69, 19, 0.1);
+}
+
+.toolbar-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
+}
+
+.toolbar-button svg {
+  margin-bottom: 4px;
+}
+
+.button-text {
+  font-size: 12px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.toolbar {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    flex-wrap: wrap;
+  }
+
+  .toolbar-button {
+    margin: 4px;
+  }
+
+  .button-text {
+    display: none;
+  }
+}
