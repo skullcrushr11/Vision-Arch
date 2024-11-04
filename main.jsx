@@ -71,7 +71,7 @@ function initThreeJS() {
 
     renderer.setClearColor(0xA3A3A3);
     const rgbeLoader = new RGBELoader();
-    rgbeLoader.load('./assets/textures/pure_sky.hdr', (texture) => {
+    rgbeLoader.load('./textures/pure_sky.hdr', (texture) => {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     texture.encoding = THREE.sRGBEncoding;
 
@@ -180,11 +180,11 @@ function addFloor() {
 
     // Load floor textures
     const floorGeometry = new THREE.PlaneGeometry(20, 20, 512, 512);
-    const baseColor = textureLoader.load('./assets/textures/floor/granite/basecolour.jpg');
-    const displacementMap = textureLoader.load('./assets/textures/floor/granite/displacement.tiff');
-    const normalMap = textureLoader.load('./assets/textures/floor/granite/normal.png');
-    const roughnessMap = textureLoader.load('./assets/textures/floor/granite/roughness.jpg');
-    const metallicMap = textureLoader.load('./assets/textures/floor/granite/metallic.jpg');
+    const baseColor = textureLoader.load('/textures/floor/granite/basecolour.jpg');
+    const displacementMap = textureLoader.load('/textures/floor/granite/displacement.tiff');
+    const normalMap = textureLoader.load('/textures/floor/granite/normal.png');
+    const roughnessMap = textureLoader.load('/textures/floor/granite/roughness.jpg');
+    const metallicMap = textureLoader.load('/textures/floor/granite/metallic.jpg');
 
     [baseColor, displacementMap, normalMap, roughnessMap, metallicMap].forEach((texture) => {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
@@ -239,9 +239,9 @@ function addFloor() {
 
 
     // Wall Material
-    const wallDiffuseTexture = textureLoader.load('./assets/textures/wall/textures/diff.jpg');
-    const wallNormalTexture = textureLoader.load('./assets/textures/wall/textures/nor.jpg');
-    const wallGlossinessTexture = textureLoader.load('./assets/textures/wall/textures/arm.jpg');
+    const wallDiffuseTexture = textureLoader.load('/textures/wall/textures/diff.jpg');
+    const wallNormalTexture = textureLoader.load('/textures/wall/textures/nor.jpg');
+    const wallGlossinessTexture = textureLoader.load('/textures/wall/textures/arm.jpg');
     
     [wallDiffuseTexture, wallNormalTexture, wallGlossinessTexture].forEach((texture) => {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;

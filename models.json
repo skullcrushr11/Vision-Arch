@@ -2,24 +2,24 @@
 {
   "Sofa": {
     "model_size": [3.5,5],
-    "model_picture": "/assets/2dimages/sofa.png",
-    "file_location":"/assets/models/sofa.glb",
+    "model_picture": "/2dimages/sofa.png",
+    "file_location":"/models/sofa.glb",
     "placedPositions": null,
     "scaling_factor":0.4,
     "upwards":-2.15
   },
   "Table": {
     "model_size": [2, 2],
-    "model_picture": "/assets/2dimages/table.png",
-    "file_location":"/assets/models/table.glb",
+    "model_picture": "/2dimages/table.png",
+    "file_location":"/models/table.glb",
     "placedPositions": null,
     "scaling_factor":3,
     "upwards":0.01
   },
   "Chair": {
     "model_size": [2, 2],
-    "model_picture": "/assets/2dimages/chair.png",
-    "file_location":"/assets/models/chair.gltf",
+    "model_picture": "/2dimages/chair.png",
+    "file_location":"/models/chair.gltf",
     "placedPositions": null,
     "scaling_factor":1.5,
     "upwards":0.01
@@ -27,8 +27,8 @@
   },
   "Fridge": {
     "model_size": [2, 2],
-    "model_picture": "/assets/2dimages/fridge.jpg",
-    "file_location":"/assets/models/fridge.glb",
+    "model_picture": "/2dimages/fridge.jpg",
+    "file_location":"/models/fridge.glb",
     "placedPositions": null,
     "scaling_factor":0.015,
     "upwards":0.01
