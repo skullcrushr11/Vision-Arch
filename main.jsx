@@ -120,54 +120,76 @@ function initThreeJS() {
 // fridgeCubeCamera = new THREE.CubeCamera(0.1, 50, fridgeCubeRenderTarget);
 
 
-function loadModels() {
+function getLayoutFromCookie() {
+    const match = document.cookie.match(new RegExp('(^| )layoutData=([^;]+)'));
+    if (match) {
+      try {
+        return JSON.parse(decodeURIComponent(match[2]));
+      } catch (error) {
+        console.error("Error parsing layout data from cookie:", error);
+      }
+    }
+    return null;
+  }
+  
+  function loadModels() {
     const loader = new GLTFLoader();
-
-    // Fetch the layout data
-    fetch('./furniture_layout.json')
-        .then(response => response.json())
-        .then(layout => {
-            const furniturePositions = layout.furniturePositions;
-
-            // Iterate over each furniture position
-            furniturePositions.forEach(furniture => {
-                const { file_location, x, y, scaling_factor, upwards } = furniture;
-
-                // Load the model for each furniture item based on file_location
-                loader.load(file_location, (gltf) => {
-                    const model = gltf.scene;
-                    
-                    // Set model's scale using scaling_factor, position using x, y, and upwards
-                    const scaleFactor = scaling_factor || 1; // Fallback to 0.015 if scaling_factor is undefined
-                    model.scale.set(scaleFactor, scaleFactor, scaleFactor);
-                    
-                    // Position the model using x, y for Three.js x, z and upwards for y
-                    model.position.set(x, upwards, y);
-
-                    model.traverse((child) => {
-                        if (child.isMesh) {
-                            // Apply the environment map and material properties
-                            child.material.envMap = cubeRenderTarget.texture;
-                            child.material.envMapIntensity = 1;
-                            child.material.roughness = 0.05;
-                            child.material.metalness = 0.8;
-
-                            child.castShadow = true;
-                            child.receiveShadow = true;
-                        }
-                    });
-
-                    // Add the model to the scene
-                    scene.add(model);
-                }, undefined, (error) => {
-                    console.error(`Error loading model from ${file_location}:`, error);
-                });
-            });
-        })
-        .catch(error => {
-            console.error("Failed to load furniture layout:", error);
+  
+    // Retrieve layout data from localStorage
+    const layoutString = localStorage.getItem('layoutData');
+    
+    if (!layoutString) {
+      console.error("No layout data found in localStorage.");
+      return;
+    }
+  
+    let layout;
+    try {
+      layout = JSON.parse(layoutString);
+    } catch (error) {
+      console.error("Error parsing layout data from localStorage:", error);
+      return;
+    }
+  
+    const { furniturePositions } = layout;
+  
+    // Iterate over each furniture position and load the model
+    furniturePositions.forEach(furniture => {
+      const { file_location, x, y, scaling_factor, upwards } = furniture;
+  
+      // Load the model for each furniture item based on file_location
+      loader.load(file_location, (gltf) => {
+        const model = gltf.scene;
+  
+        // Set model's scale using scaling_factor, position using x, y, and upwards
+        const scaleFactor = scaling_factor || 1;
+        model.scale.set(scaleFactor, scaleFactor, scaleFactor);
+  
+        // Position the model using x, y for Three.js x, z and upwards for y
+        model.position.set(x, upwards, y);
+  
+        model.traverse((child) => {
+          if (child.isMesh) {
+            // Apply the environment map and material properties
+            child.material.envMap = cubeRenderTarget.texture;
+            child.material.envMapIntensity = 1;
+            child.material.roughness = 0.05;
+            child.material.metalness = 0.8;
+  
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
         });
-}
+  
+        // Add the model to the scene
+        scene.add(model);
+      }, undefined, (error) => {
+        console.error(`Error loading model from ${file_location}:`, error);
+      });
+    });
+  }
+  
+  
 
 
 

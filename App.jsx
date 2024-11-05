@@ -132,7 +132,7 @@ export default function App() {
     }
   };
 
-  const exportLayout = async () => {
+  const exportLayout = () => {
     // Map furniturePositions to include `file_location` from models.json
     const furnitureWithLocation = furniturePositions.map(furniture => {
       const { model_name } = furniture;
@@ -154,23 +154,14 @@ export default function App() {
     };
   
     try {
-      const response = await fetch('https://https://vision-arch-sigma.vercel.app/api/saveLayout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(layout)
-      });
-  
-      if (response.ok) {
-        alert("Layout saved successfully!");
-      } else {
-        alert("Failed to save layout.");
-      }
+      // Save layout data to localStorage
+      localStorage.setItem('layoutData', JSON.stringify(layout));
+      alert("Layout saved to localStorage successfully!");
     } catch (error) {
-      console.error("Error saving layout:", error);
+      console.error("Error saving layout to localStorage:", error);
     }
   };
+  
   
   
 
