@@ -55,10 +55,11 @@ Follow these steps to set up Vision-Arch locally:
 ## Screenshots
 
 1. **Upload 2D Plan Page**  
-   ![Upload 2D Plan](path_to_screenshot1)
+   ![Upload 2D Plan](./2dpage.jpg)
 
 2. **Explore Sample House Page (3D View)**  
-   ![Explore Sample House](path_to_screenshot2)
+   ![Explore Sample House](./3dpage.jpg)
+   
 
 ## Contributing
 
