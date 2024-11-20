@@ -1,0 +1,196 @@
+/* .grid-container {
+  position: relative;
+  background-color: var(--background-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(139, 69, 19, 0.1);
+  transition: all 0.3s ease;
+}
+
+.grid-container:hover {
+  box-shadow: 0 12px 24px rgba(139, 69, 19, 0.15);
+  transform: translateY(-2px);
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.grid 
+  display: grid;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: all;
+  grid-template-columns: repeat(12, 1fr); /* Adjust the number of columns */
+/* grid-template-rows: repeat(12, 1fr); Adjust the number of rows */
+/* } */
+
+.grid-container {
+  position: relative;
+  background-color: var(--background-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(139, 69, 19, 0.1);
+  transition: all 0.3s ease;
+}
+
+.grid-container:hover {
+  box-shadow: 0 12px 24px rgba(139, 69, 19, 0.15);
+  transform: translateY(-2px);
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: all;
+  grid-template-columns: repeat(20, 1fr); /* 20 columns */
+  grid-template-rows: repeat(20, 1fr); /* 20 rows */
+}
+
+.grid-cell {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--secondary-color);
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.grid-cell:hover {
+  background-color: rgba(210, 180, 140, 0.2);
+  z-index: 1;
+}
+
+.red-cell {
+  background-color: rgba(255, 0, 0, 0.5) !important;
+}
+
+.grid-cell {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--secondary-color);
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.grid-cell:hover {
+  background-color: rgba(210, 180, 140, 0.2);
+  z-index: 1;
+}
+*/ .furniture-item {
+  background-color: white;
+  cursor: move;
+  user-select: none;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  border: 2px solid var(--secondary-color);
+  box-sizing: border-box;
+}
+
+.furniture-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(139, 69, 19, 0.15);
+}
+
+/* .furniture-image {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+  padding: 4px;
+  box-sizing: border-box;
+} */
+
+.flip-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: white;
+  border: 1px solid var(--secondary-color);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 11;
+  transition: all 0.2s ease;
+}
+
+.flip-button svg {
+  color: var(--primary-color); /* Set icon color separately */
+  transition: color 0.2s ease; /* Transition for the icon color */
+}
+
+.flip-button:hover {
+  background-color: var(--primary-color);
+  color: white; /* Applies to text within the button, not the icon */
+  transform: rotate(180deg);
+}
+
+/* Grid Pattern Animation */
+@keyframes gridPulse {
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+      45deg,
+      rgba(139, 69, 19, 0.05) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(139, 69, 19, 0.05) 75%,
+      rgba(139, 69, 19, 0.05)
+    ),
+    linear-gradient(
+      45deg,
+      rgba(139, 69, 19, 0.05) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(139, 69, 19, 0.05) 75%,
+      rgba(139, 69, 19, 0.05)
+    );
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+  animation: gridPulse 4s infinite;
+  pointer-events: none;
+}

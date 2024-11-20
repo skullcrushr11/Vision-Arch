@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #8b4513;
+  --secondary-color: #d2b48c;
+  --background-color: #fff8dc;
+  --text-color: #4a4a4a;
+  --sidebar-width: 280px;
+  --wide-sidebar-width: 400px;
+  --panel-width: 280px;
+  --header-height: 60px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Work Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.app-wrapper {
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: #fff;
+  padding: 24px;
+  border-right: 1px solid var(--secondary-color);
+  height: 100vh;
+  position: fixed;
+  overflow-y: auto;
+  z-index: 10;
+  box-sizing: border-box;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.wide-sidebar {
+  width: var(--wide-sidebar-width);
+}
+
+.sidebar:hover {
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-title {
+  font-size: 28px;
+  color: var(--primary-color);
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--secondary-color);
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  padding: 24px;
+  margin-left: var(--wide-sidebar-width);
+  min-height: 100vh;
+  background-color: var(--background-color);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center; /* Centers children horizontally */
+  align-items: flex-start; /* Align children at the top of the container */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar,
+  .wide-sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border: none;
+  }
+
+  .main-content {
+    margin: 0;
+    min-height: 500px;
+  }
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.app-wrapper {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.sidebar,
+.wide-sidebar {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Component-Specific Customization */
+.furniture-dropdown {
+  height: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.furniture-search {
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+  font-family: "Work Sans", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.furniture-search:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(139, 69, 19, 0.1);
+}
+
+.furniture-item {
+  background-color: #fff;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.furniture-item:hover {
+  background-color: var(--background-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.grid-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.grid-container:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.grid-cell {
+  border: 1px solid var(--secondary-color);
+  transition: all 0.2s ease;
+}
+
+.grid-cell:hover {
+  background-color: rgba(210, 180, 140, 0.2);
+}

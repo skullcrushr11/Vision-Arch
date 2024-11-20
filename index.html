@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/icons/favicon.png">
+    <title>Vision Arch | ARVR Project</title>
+    <style>
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: 'Nova Square', sans-serif;
+            background-color: #f0f4f8;
+            /* Light background */
+            font-size: large;
+            /* letter-spacing: 3ch; */
+        }
+
+        /* Styling for screens */
+        .screen {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .active {
+            display: flex;
+        }
+
+        /* Menu styling */
+        #menuScreen {
+            position: relative;
+            /* Necessary for video layering */
+            background: transparent;
+            /* Make background transparent */
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        #menuScreen h1 {
+            font-size: 3em;
+            margin-bottom: 90px;
+            animation: fadeIn 1s ease forwards;
+            z-index: 2;
+            /* Ensure content stays above the video */
+            color: black;
+            /* Set font color to black */
+        }
+
+        /* Button styling */
+        button {
+            font-size: 1.3em;
+            padding: 20px;
+            margin: 20px 0;
+            /* Increased vertical margin */
+            border: none;
+            cursor: pointer;
+            background-color: #000000;
+            color: #E3E2DE;
+            font-weight: 600;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 295px;
+            /* Fixed width for equal button sizes */
+            animation: fadeInUp 1.2s ease forwards;
+            z-index: 2;
+            /* Ensure buttons stay above the video */
+            font-family: 'Quicksand';
+            font-size: large;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.1ch;
+        }
+
+        /* Button hover effect */
+        .btn-4 {
+            border: 1px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-4 span {
+            z-index: 20;
+        }
+
+        .btn-4:after {
+            background: #fff;
+            content: "";
+            height: 155px;
+            left: -75px;
+            opacity: 0.2;
+            position: absolute;
+            top: -50px;
+            transform: rotate(35deg);
+            transition: all 1200ms cubic-bezier(0.19, 1, 0.22, 1);
+            width: 50px;
+            z-index: -10;
+        }
+
+        .btn-4:hover:after {
+            left: 120%;
+            transition: all 1200ms cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hide exit button by default */
+        #exitButton {
+            display: none;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        /* Show exit button when gameScreen is active */
+        #gameScreen.active #exitButton {
+            display: block;
+        }
+
+        /* Background video styling */
+        #backgroundVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+            /* Set opacity for translucency */
+            z-index: 1;
+            /* Video should be behind content */
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menuScreen" class="screen active">
+        <video id="backgroundVideo" autoplay muted loop>
+            <source src="/videos/back.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1 style="letter-spacing: 1.5ch;">VISION ARCH</h1>
+        <button id="uploadButton" class="btn-4"><span>PLAN HOUSE IN 2D</span></button>
+        <button id="exploreButton" class="btn-4"><span>EXPLORE YOUR HOUSE</span></button>
+    </div>
+
+    <div id="gameScreen" class="screen">
+        <div id="exitButton">EXIT</div>
+        <div id="colorPickerContainer" style="display:none;">
+            <input type="color" id="floorColorInput" />
+        </div>
+    </div>
+
+    <!-- React Root Container (Hidden by default) -->
+    <div id="root" style="display: none;"></div>
+
+    <script type="module" src="./src/3d_render/main.jsx"></script>
+
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const video = document.getElementById('backgroundVideo');
+        video.playbackRate = 0.83; // Adjust video speed if needed
+    });
+</script>
+
+</html>
