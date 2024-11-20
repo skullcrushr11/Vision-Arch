@@ -254,7 +254,7 @@ export default function Grid({
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                transform: `rotate(${furniture.rotation || 0}deg) scaleX(${
+                transform: `rotate(${-furniture.rotation || 0}deg) scaleX(${
                   furniture.flipped ? -1 : 1
                 })`,
                 transformOrigin: "center center",
