@@ -307,7 +307,7 @@ export default function Grid({
                   color: "black",
                 }}
               >
-                <RotateCw size={14} />
+                <RotateCw size={14} style={{ transform: "scaleX(-1)" }} />
               </button>
               <button
                 onClick={(e) => handleRemove(furniture.id, e)}

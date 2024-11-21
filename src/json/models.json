@@ -5,7 +5,7 @@
     "file_location": "/models/compressed_bed.glb",
     "placedPositions": null,
     "scaling_factor": 0.8,
-    "initial_rotation": 0,
+    "initial_rotation": -90,
     "offset_rotation": 0,
     "upwards": 0.01
   },
