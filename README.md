@@ -63,14 +63,6 @@ Follow these steps to set up Vision-Arch locally:
 2. **Explore Sample House Page (3D View)**  
    ![Explore Sample House](./github_images/3dpage.jpg)
 
-## Contributing
-
-We welcome contributions! Please open an issue or submit a pull request for any changes or suggestions.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
 
 Enjoy turning your 2D plans into immersive 3D experiences with Vision-Arch!
