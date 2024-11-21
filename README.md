@@ -66,3 +66,5 @@ Follow these steps to set up Vision-Arch locally:
 ---
 
 Enjoy turning your 2D plans into immersive 3D experiences with Vision-Arch!
+
+You can see a demo of our project at: [YouTube Demo Link](https://www.youtube.com/watch?v=HQQvJwJh2xI)
